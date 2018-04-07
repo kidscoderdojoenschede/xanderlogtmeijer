@@ -2,7 +2,17 @@
 <html>
     <head>
 	</head>
+	<script>
+	function maak_profiel(){
+	var voornaam=document.getElementById('voornaam').value;
+	var achternaam=document.getElementById('wachtwoord').value;
+	alert('je hebt een account gemaakt '+voornaam);
+	
+	}
+	</script>
      <body>
-	 <input></input>
+	 <input id ="voornaam">
+	 <input id ="wachtwoord" type ="password">
+	 <button onclick ="maak_profiel()">maak</button>
     </body>
 </html>
