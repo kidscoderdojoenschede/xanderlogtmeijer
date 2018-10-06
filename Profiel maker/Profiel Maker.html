@@ -37,10 +37,6 @@
 			event.preventDefault();
 			maak_profiel();
 		}
-		if (ev.which == 105) {
-			event.preventDefault();
-			alert("INFO:\nje maakt een profiel");
-		}
 	});
 	function toonGebruikers(){
 		var gebruikersElement=document.getElementById('gebruikers');
@@ -55,6 +51,11 @@
 	
 		window.location.reload();
 		}
+		
+	function info() {
+	
+		alert("INFO:\nje maakt een profiel");
+		}
 	</script>
      <body>
 	 <div id="gebruikers">
@@ -66,5 +67,6 @@
 	 <br>
 	 <br>
 	 <button onclick ="NOODKNOP()">NOODKNOP</button>
+	 <button onclick ="info()">Info</button>
     </body>
 </html>
