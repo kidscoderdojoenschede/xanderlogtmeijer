@@ -3,14 +3,27 @@
     <head>
 	</head>
 	<script>
-	function maak_profiel(){
-	var voornaam=document.getElementById('voornaam').value;
-	var achternaam=document.getElementById('wachtwoord').value;
-	alert('je hebt een account gemaakt '+voornaam);
+	var gebruikers={};
 	
+	function maak_profiel(){
+		var voornaam=document.getElementById('voornaam').value;
+		var wachtwoord=document.getElementById('wachtwoord').value;
+		gebruikers[voornaam]=wachtwoord;	
+		toonGebruikers();
+	}
+	
+	function toonGebruikers(){
+		var gebruikersElement=document.getElementById('gebruikers');
+		gebruikersElement.innerHTML='';
+		for(var voornaam in gebruikers){
+			gebruikersElement.innerHTML+="<div><h6>"+voornaam+"</h6></div>";
+		}
+
 	}
 	</script>
      <body>
+	 <div id="gebruikers">
+	 </div>
 	 <input id ="voornaam">
 	 <input id ="wachtwoord" type ="password">
 	 <button onclick ="maak_profiel()">maak</button>
