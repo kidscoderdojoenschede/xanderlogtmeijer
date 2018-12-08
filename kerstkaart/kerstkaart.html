@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Kerstkaart</title>
+	<link rel="stylesheet" type="text/css" href="kerstkaart.css">
+
+<!-- Het openen en sluiten van je kaart -->
+	<link rel="stylesheet" type="text/css" href="flip-open-close/flip-open-close.css">
+	<script type="text/javascript" src="flip-open-close/flip-open-close.js"></script>
+
+<!-- Het toevoegen van kerstmuziek en het belgeluid -->
+	<link rel="stylesheet" type="text/css" href="music/music.css">
+	<script type="text/javascript" src="music/music.js"></script>
+
+<!-- Het toevoegen van een start en pause knop voor de muziek -->
+	<script type="text/javascript" src="music/sound-control.js"></script>
+	
+<!-- De streng met gekleurde lampjes -->	
+	<link rel="stylesheet" type="text/css" href="lightrope/lightrope.css">
+
+<!-- Het sneeuwt -->
+	<link rel="stylesheet" type="text/css" href="snow/snow.css">
+
+<!-- De lichtkrant (tekst die beweegt) -->
+	<link rel="stylesheet" type="text/css" href="marquee/marquee.css">
+</head>
+
+<body>
+
+<div class="snowflakes">
+	<!-- Elke <i></i> toont 1 sneeuwvlok --> 
+	<i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+</div>
+
+<div id="kaart" class="closed">
+	<section id="voorzijde">
+	    <p class="wens1">Fijne feestdagen</p>
+		<img class="foto1" src="afbeeldingen/santa75.gif" width="240" height="320" alt="afbeelding voorzijde">
+	 	<p class="wens2">Gelukkig nieuwjaar</p>
+    	<div class="footer"><p>Open deze kaart door klikken, swipen of tappen <span class="arrow">→</span>></p></div>
+	</section>
+	<section id="linkerbinnenkant">
+		<img src="afbeeldingen/santa75.gif" width="300">
+		<img src="afbeeldingen/santa75.gif" width="300">
+		<img src="afbeeldingen/santa75.gif" width="300">
+		<img src="afbeeldingen/santa75.gif" width="300">
+		<img src="afbeeldingen/santa75.gif" width="300">
+	</section>
+	<section id="rechterbinnenkant">
+		<div class="lightrope">
+		<!-- Elke <span></span> toont 1 lampje --> 
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+
+		<p class="wens1">Van</p>
+		<img src="afbeeldingen/santa75.gif" width="300">
+
+			<p class="wens1">Gellukig niewjaar</p>
+		</div>
+		
+		<audio id="music" preload="auto" loop="loop">
+			<source src="geluiden/Thicker_Than_Water_-_23_-_Joy_to_the_World.mp3" type="audio/ogg"/>
+		</audio>
+        <!-- Hieronder, maar boven de footer, zet je de audio controls -->
+		
+		<div class="footer">
+		</div>
+
+	</section>
+</div>
+</body>
+</html>

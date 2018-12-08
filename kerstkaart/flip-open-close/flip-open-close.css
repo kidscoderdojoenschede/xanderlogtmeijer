@@ -1,0 +1,75 @@
+#kaart {
+	width: 800px;
+	height: 450px;
+	margin: 0 auto;
+	padding: 0;
+	position: relative;
+}
+
+#kaart section {
+	width: 50%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: #fff9ed linear-gradient(90deg, #e9e1d5, #fff9ed 5%, #fff9ed);
+	box-shadow: rgba(0, 0, 0, 0.5) 5px 5px 5px;
+	border: 1px solid #e9e1d5;
+	margin: 40px;
+	padding: 25px 0;
+	text-align: center;
+}
+
+#kaart #voorzijde {
+	z-index: 3;
+	transform: rotateY(90deg) skewY(-5deg);
+	transform-origin: top left;
+	transform-style: preserve-3d;
+	transition-property: transform;
+}
+
+#kaart.open #voorzijde, #kaart.closing #voorzijde {
+	opacity: 0;
+}
+
+#kaart.opening #voorzijde {
+	transition: transform 1s ease-in;
+}
+
+#kaart.closed #voorzijde {
+	cursor: pointer;
+	transform: none;
+	transition: transform 1s ease-out;
+}
+
+#kaart #linkerbinnenkant {
+	opacity: 0;
+	z-index: 1;
+	right: 50%;
+	background: #fff9ed linear-gradient(90deg, #fff9ed, #fff9ed 95%, #e9e1d5);
+	border-radius: 0 5px 5px 0;
+	transform: rotateY(90deg) skewY(5deg);
+	transform-origin: bottom right;
+	transition-property: transform;
+}
+
+#kaart.open #linkerbinnenkant {
+	opacity: 1;
+	cursor: pointer;
+	transition: transform 1s ease-out;
+	transform: none;
+}
+
+#kaart.closing #linkerbinnenkant {
+	opacity: 1;
+	transition: transform 1s ease-in;
+}
+
+#kaart.closed #linkerbinnenkant {
+	opacity: 0;
+}
+
+#kaart #rechterbinnenkant {
+	z-index: 2;
+	border-radius: 5px 0 0 5px;
+}

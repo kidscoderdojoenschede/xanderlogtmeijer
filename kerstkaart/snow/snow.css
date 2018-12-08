@@ -1,0 +1,124 @@
+.snowflakes {
+	position: fixed;
+	top: -20vh;
+	left: 0;
+	width: 100%;
+	height: 120vh;
+	z-index: -1;
+	pointer-events: none;
+	display: flex;
+	justify-content: space-between;
+	/* Allow for multi row snowflakes */
+	flex-wrap: wrap;
+}
+
+.snowflakes i {
+	display: inline-block;
+
+	animation: falling;
+	animation-iteration-count: infinite;
+
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-image: url(../afbeeldingen/sneeuwvlok01.png);
+}
+
+/* De animatie; sneeuwvlokjes gaan naar beneden, draaien rond, en worden groter */
+@keyframes falling {
+	0% {
+		transform: translateY(0) rotate(0deg) scale(0.8);
+	}
+	100% {
+		transform: translateY(120vh) rotate(360deg) scale(1.2);
+	}
+}
+
+/*
+	Maak de sneeuwvlokken in 4 verschillende groottes; met 'transform-origin' wordt ervoor
+	gezorgd dat ze een beetje heen-en-weer bewegen tijdens het draaien.
+ */
+.snowflakes i:nth-child(4n+0) {
+	width: 130px;
+	height: 130px;
+	transform-origin: -5% -5%;
+}
+
+.snowflakes i:nth-child(4n+1) {
+	width: 97px;
+	height: 97px;
+	transform-origin: 15% 0;
+}
+
+.snowflakes i:nth-child(4n+2) {
+	width: 65px;
+	height: 65px;
+	transform-origin: 0 -30%;
+}
+
+.snowflakes i:nth-child(4n+3) {
+	width: 32px;
+	height: 32px;
+	transform-origin: -100% -100%;
+}
+
+/* Sommige sneeuwvlokjes zijn sneller dan anderen */
+.snowflakes i:nth-child(3n+0) {
+	animation-duration: 12s;
+}
+
+.snowflakes i:nth-child(3n+1) {
+	animation-duration: 18s;
+}
+
+.snowflakes i:nth-child(3n+2) {
+	animation-duration: 24s;
+}
+
+/*
+	Hiermee wordt gezorgd dat de sneeuwvlokjes niet altijd precies even snel vallen.
+	Sommige beginnen snel en eindigen wat langzamer, anderen beginnen langzaam en
+	eindigen sneller, enzovoort */
+.snowflakes i:nth-of-type(6n+0) {
+	animation-timing-function: ease-in-out;
+}
+
+.snowflakes i:nth-of-type(6n+1) {
+	animation-timing-function: ease-out;
+}
+
+.snowflakes i:nth-of-type(6n+2) {
+	animation-timing-function: ease;
+}
+
+.snowflakes i:nth-of-type(6n+3) {
+	animation-timing-function: ease-in;
+}
+
+.snowflakes i:nth-of-type(6n+4) {
+	animation-timing-function: linear;
+}
+
+.snowflakes i:nth-of-type(6n+5) {
+	animation-timing-function: cubic-bezier(0.2, 0.3, 0.8, 0.9);
+}
+
+/* Sommige sneeuwvlokjes zijn beter zichtbaar dan anderen (misschien verder weg) */
+.snowflakes i:nth-of-type(7n+0) {
+	opacity: 0.5;
+}
+
+.snowflakes i:nth-of-type(7n+1) {
+	opacity: 0.8;
+}
+
+.snowflakes i:nth-of-type(7n+2) {
+	opacity: 0.3;
+}
+
+.snowflakes i:nth-of-type(7n+4) {
+	opacity: 0.7;
+}
+
+.snowflakes i:nth-of-type(7n+6) {
+	opacity: 0.6;
+}

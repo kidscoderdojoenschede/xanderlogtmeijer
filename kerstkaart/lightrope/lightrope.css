@@ -1,0 +1,159 @@
+.lightrope {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	text-align: center; /* zet de lampjes in het midden */
+	pointer-events: none;
+}
+
+.lightrope span {
+	display: inline-block; /* Nodig om de breedte en hoogte aan te kunnen geven */
+	width: 12px; /* Dit is de breedte van een lampje */
+	height: 20px; /* Dit is de hoogte van een lampje */
+	margin: 0 18px; /* Dit is de afstand tussen de lampjes */
+	border-radius: 50%; /* Dit verandert de vorm (rondheid) van het lampje */
+	padding: 0;
+	position: relative; /* Nodig om de lijntjes te tekenen bij het lampje */
+	animation-fill-mode: both;
+	animation-iteration-count: infinite;
+}
+
+/* Van links naar echts hebben de lampjes een nummer wat begint met 1 en oploopt naar rechts */
+/* zo hebben we dat hier in dit bestand gedaan. Maar het mag ook anders */
+/* nth-child(2) wil zeggen: het 2e lampje */
+/* nth-child(3n) wil zeggen: elk 3e lampje (3,6,9, etc) */
+/* zo mag je ook odd (1,3,5,etc) en even (2,4,6,etc) gebruiken */ 
+.lightrope span:nth-child(1) {
+	animation-name: flash-yellow;
+	animation-duration: 0.8s;
+}
+
+.lightrope span:nth-child(2) {
+	animation-name: flash-red;
+	animation-duration: 1.0s;
+}
+
+.lightrope span:nth-child(3) {
+	animation-name: flash-yellow;
+	animation-duration: 1.1s;
+}
+
+.lightrope span:nth-child(4) {
+	animation-name: flash-green;
+	animation-duration: 1.3s;
+}
+
+.lightrope span:nth-child(5) {
+	animation-name: flash-yellow;
+	animation-duration: 0.9s;
+}
+
+.lightrope span:nth-child(6) {
+	animation-name: flash-red;
+	animation-duration: 0.8s;
+}
+
+.lightrope span:nth-child(7) {
+	animation-name: flash-yellow;
+	animation-duration: 1.0s;
+}
+
+/* Sommige lampjes knipperen iets sneller of langzamer */
+.lightrope span:nth-child(2n + 1) {
+	animation-duration: 1.4s;
+}
+
+/*
+	Dit is de fitting van het lampje (het rechthoekje).
+	Om deze te tekenen wordt er gezegd dat er bij ieder lampje
+	lege tekst moet staan, met daaromheen een rechthoekje getekend
+*/
+.lightrope span:before { 
+	content: "";
+	background: #333333;
+	width: 8px; /* dikte van de fitting */
+	height: 9px; /* hoogte van de fitting */
+	border-radius: 3px; /* vierkant of ronde fitting */
+	position: absolute;
+	top: -8px; /* de plaats van de fitting t.o.v. het lampje */
+	left: 2px;
+}
+
+/*
+	Dit zijn de koordjes tussen de lampjes.
+	Om deze te tekenen wordt er gezegd dat er bij ieder lampje
+	lege tekst moet staan, met daaromheen een stuk van een cirkel getekend
+ */
+.lightrope span:after {
+	content: "";
+	top: -18px; 
+	left: 8px;
+	position: absolute;
+	width: 48px; /* de lengte van het koord tussen de lampjes */
+	height: 20px;
+	border-bottom: solid #222 2px; /* de dikte van het koord */
+	border-radius: 50%; /* de ronding van het koord (cirkel) */
+}
+
+/* Het laatste lampje krijgt geen koordje */
+.lightrope span:last-child:after {
+	content: none;
+}
+
+/*
+	Hier wordt aangegeven hoe de lampjes knipperen; ze gaan van (0%) volle kleur en schaduw,
+	naar halverwege (50%) een beetje doorzichtige kleur en schaduw, en daarna weer terug
+	naar de volle kleur (100%).
+	'background' is de kleur van het lampje zelf, en 'box-shadow' wordt gebruikt om het
+	licht-effect te maken.
+	Voor 'box-shadow' geeft "0 5px" aan dat het licht-effect iets onder het midden begint.
+	24px geeft aan dat er groot kleurverloop in 'de schaduw' zit.
+	3px geeft aan dat het licht-effect iets groter is dan het lampje
+ */
+@keyframes flash-green {
+	0%,
+	100% {
+		background: rgba(0, 247, 165, 1.0);
+		box-shadow: 0 5px 24px 3px rgba(0, 247, 165, 1.0);
+	}
+	50% {
+		background: rgba(0, 247, 165, 0.4);
+		box-shadow: 0 5px 24px 3px rgba(0, 247, 165, 0.2);
+	}
+}
+
+@keyframes flash-yellow {
+	0%,
+	100% {
+		background: rgba(255, 255, 0, 1.0);
+		box-shadow: 0 5px 24px 3px rgba(255, 255, 0, 1.0);
+	}
+	50% {
+		background: rgba(255, 255, 0, 0.4);
+		box-shadow: 0 5px 24px 3px rgba(255, 255, 0, 0.2);
+	}
+}
+
+@keyframes flash-red {
+	0%,
+	100% {
+		background: rgba(247, 0, 148, 1.0);
+		box-shadow: 0 5px 24px 3px rgba(247, 0, 148, 1.0);
+	}
+	50% {
+		background: rgba(247, 0, 148, 0.4);
+		box-shadow: 0 5px 24px 3px rgba(247, 0, 148, 0.2);
+	}
+}
+
+@keyframes flash-jouwkleur {
+	0%,
+	100%  {
+		background: rgba(0, 0, 0, 1.0);
+		box-shadow: 0 5px 24px 1px rgba(255, 165, 0, 1.0);
+	}
+	50% {
+		background: rgba(0, 0, 0, 0.4);
+		box-shadow: 0 5px 24px 2px rgba(255, 165, 0, 0.2);
+	}
+}

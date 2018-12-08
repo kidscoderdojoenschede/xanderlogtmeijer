@@ -1,0 +1,47 @@
+/* Marquee is een lichtkrant, deze gaat van rechts naar links */
+.marquee {
+	position: relative;
+	display: inline-block;
+	/* Dit zorgt ervoor dat de tekst niet over 2 regels gaat */
+	white-space: nowrap;
+	/* Laat de tekst in 10 seconden van rechts naar links gaan */
+	animation: scroll 10s linear infinite;
+	color: #dc381f;
+	font-family: 'beyond_wonderlandregular';
+	font-size:2em;
+}
+
+/* Als de lichtkrant niet over de volle breedte gaat, moet dit er ook bij */
+.marquee-outer {
+	overflow: hidden;
+}
+
+/*
+	De lichtkrant begint helemaal rechts, met de tekst niet verschoven.
+	Aan het eind is de tekst helemaal links, en bovendien zo verschoven dat de rechterkant van de tekst
+	nu bij dat 0-punt is (i.p.v. de linkerkant)
+ */
+@keyframes scroll {
+	0% {
+		left: 100%;
+		transform: none;
+	}
+	100% {
+		left: 0;
+		transform: translateX(-100%);
+	}
+}
+
+/* Knipper-effect is een animatie van een halve seconde zichtbaar, en een halve seconde onzichtbaar */
+.blink {
+	animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+	0%, 50% {
+		opacity: 1;
+	}
+	50.01%, 100% {
+		opacity: 0;
+	}
+}
